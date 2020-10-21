@@ -1,7 +1,15 @@
+package br.com.ifsp;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "livro")
 public class Livro {
 
-	private Integer id;
 	public Integer getId() {
 		return id;
 	}
@@ -32,8 +40,16 @@ public class Livro {
 	public void setPreco(String preco) {
 		this.preco = preco;
 	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	@Column
 	private String titulo;
+	@Column
 	private String autor;
+	@Column
 	private String isbn;
+	@Column
 	private String preco;
 }
